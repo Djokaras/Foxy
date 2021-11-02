@@ -44,6 +44,7 @@ Paragraph default: 1.6
 html {
   /* font-size: 10px; */
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -67,6 +68,7 @@ a {
   display: flex;
   justify-content: space-between;
   padding: 1.8rem 9.8rem;
+  transition: all 0.3s;
 }
 
 .logo {
@@ -168,17 +170,24 @@ a {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 3.2rem;
+  justify-content: center;
 }
 
 .card-box {
   display: grid;
   justify-items: center;
   gap: 3.2rem;
+  transition: all 0.4s;
 }
 
 .about-icon {
   border: 2px solid #ccc;
   border-radius: 50%;
+}
+
+.about-icon:hover {
+  transform: translateY(-1.2rem);
+  box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
 }
 
 .card-title {
@@ -212,24 +221,21 @@ a {
   margin-bottom: 4.4rem;
 }
 
+.testimonial-btn {
+  display: none;
+}
+
 .testimonials {
+  display: grid;
+  grid-template-columns: 40rem 40rem 40rem;
+  justify-content: center;
+  gap: 2.4rem;
   padding: 0 9.6rem;
 }
 
-.first-row,
-.second-row {
-  display: flex;
-  gap: 3.6rem;
-  justify-content: center;
-}
-
-.first-row {
-  margin-bottom: 3.6rem;
-}
-
 .testimonial {
-  width: 40rem;
-  backdrop-filter: blur(5px);
+  border-radius: 11px;
+  box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.3);
 }
 
 .testimonial-kae,
@@ -237,7 +243,7 @@ a {
 .testimonial-kipling,
 .testimonial-melvyn,
 .testimonial-kelsey {
-  background-size: cover;
+  background-size: auto;
   background-position: top;
 }
 
@@ -255,10 +261,16 @@ a {
 
 .testimonial-melvyn {
   background-image: url(slike/people/melvyn.png);
+  position: relative;
+  top: 0%;
+  left: 50%;
 }
 
 .testimonial-kelsey {
   background-image: url(slike/people/kelsey.png);
+  position: relative;
+  top: 0%;
+  left: 50%;
 }
 
 .testimonial-text {
@@ -291,11 +303,7 @@ a {
 /* GET IN TOUCH SECTION */
 
 .section-cta {
-  padding: 9.6rem;
-}
-
-.cta-form {
-  width: 110rem;
+  padding: 9.6rem 32rem;
 }
 
 .cta-box {
@@ -303,16 +311,14 @@ a {
   justify-content: center;
   gap: 6.6rem;
 }
-
-.form-top {
-  display: flex;
-  gap: 1.2rem;
+.cta-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
   width: 100%;
-  margin-bottom: 1.8rem;
 }
 
 input {
-  width: 50%;
   border: none;
   background-color: #eee;
   padding: 2.4rem;
@@ -320,9 +326,8 @@ input {
 }
 
 .form-text {
-  width: 100%;
-  height: 24rem;
-  margin-bottom: 1.8rem;
+  height: 36rem;
+  grid-column: 1/-1;
 }
 
 .form-btn {
@@ -330,8 +335,8 @@ input {
   font-size: 1.6rem;
   padding: 1.4rem;
   color: #fff;
-  width: 100%;
   border-radius: 11px;
+  grid-column: 1/-1;
 
   background-color: #fa5d58;
 }
@@ -383,4 +388,132 @@ input {
 .copyright-text {
   font-size: 1.6rem;
   color: #909090;
+}
+
+@media (max-width: 83em) {
+  html {
+    font-size: 56.25%;
+  }
+
+  .logo {
+    padding-right: 1rem;
+  }
+
+  .heading-primary {
+    font-size: 3.8rem;
+  }
+
+  .testimonials {
+    display: grid;
+    grid-template-columns: 40rem 40rem;
+    justify-content: center;
+    gap: 2.4rem;
+    padding: 0 9.6rem;
+  }
+
+  .testimonial-melvyn {
+    background-image: url(slike/people/melvyn.png);
+    position: inherit;
+  }
+
+  .section-cta {
+    padding: 9.6rem 18rem;
+  }
+}
+
+@media (max-width: 57em) {
+  .header {
+    background-image: none;
+    background-color: #4f7b8f;
+    height: inherit;
+  }
+
+  .main-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.8rem 9.8rem;
+    transition: all 0.3s;
+  }
+
+  .logo {
+    margin-bottom: 6.2rem;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+  }
+
+  .header-title {
+    display: none;
+  }
+
+  .about {
+    margin: auto 8rem;
+  }
+
+  .about-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .about-cards:last-child {
+    margin-bottom: 0;
+  }
+
+  .card-box {
+    margin-bottom: 3.6rem;
+  }
+
+  .card-title {
+    font-size: 1.8rem;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+
+  .section-testimonials {
+    text-align: center;
+  }
+
+  .testimonial-btn {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: #fff;
+    display: inline-block;
+    padding: 1.8rem 6.8rem;
+    background-color: lightcoral;
+  }
+
+  .subheading {
+    display: none;
+  }
+
+  .heading-secondary {
+    margin-bottom: 3.6rem;
+  }
+
+  .testimonials {
+    display: none;
+  }
+
+  .section-cta {
+    text-align: center;
+    padding: 9.6rem 6rem;
+  }
+
+  .cta-contact {
+    text-align: center;
+  }
+
+  .cta-box {
+    flex-direction: column-reverse;
+  }
+
+  .cta-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
 }
